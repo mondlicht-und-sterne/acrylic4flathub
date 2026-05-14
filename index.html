@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acryl4Flathub – Handgemalte Icons für Linux</title>
+<style>
+  :root {
+    --bg: #0F1115;
+    --card: #1A1D23;
+    --text: #F5F7FA;
+    --muted: #9AA4B2;
+    --coral: #FF5A5F;
+    --mint: #00C896;
+    --blue: #4D8EFF;
+  }
+  
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    background: var(--coral);
+    border-radius: 24px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(90deg, var(--coral), var(--mint), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  
+  .btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  
+  .btn-primary {
+    background: var(--mint);
+    color: var(--bg);
+  }
+  
+  .btn-secondary {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid #2A2F36;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  section {
+    margin-bottom: 5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--mint);
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #2A2F36;
+  }
+  
+  .card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--blue);
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .icon-tile {
+    aspect-ratio: 1;
+    background: var(--card);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    transition: 0.2s;
+  }
+  
+  .icon-tile:hover {
+    transform: scale(1.05);
+  }
+  
+  .qr-wrap {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .qr {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 600;
+  }
+  
+  footer {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid #2A2F36;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 640px) {
+    h1 { font-size: 2.2rem; }
+    .preview-grid { grid-template-columns: repeat(2, 1fr); }
+    .qr-wrap { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+  
+  <div class="container">
+    
+    <header>
+      <div class="logo">A4F</div>
+      <h1><span class="gradient-text">Acryl4Flathub</span></h1>
+      <p class="lead">
+        Handgemalte Flat Icons für Linux. Jedes Icon zuerst auf Leinwand mit Acryl gemalt, 
+        dann digitalisiert. Kein Generator, nur Farbe und Handwerk.
+      </p>
+
+      <div class="btn-row">
+        <a href="https://github.com/dein-username" class="btn btn-primary">Auf GitHub folgen</a>
+        <a href="#about" class="btn btn-secondary">Mehr erfahren</a>
+      </div>
+    </header>
+    
+    <section id="about">
+      <h2>Warum Acryl?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Handmade</h3>
+          <p>Jedes Icon beginnt als echtes Acrylbild. Keine Vektoren aus dem Nichts.</p>
+        </div>
+        <div class="card">
+          <h3>Flat & Clean</h3>
+          <p>Reduziert auf Form und Farbe. Perfekt für Linux Desktops wie GNOME und KDE.</p>
+        </div>
+        <div class="card">
+          <h3>Open Source</h3>
+          <p>Kostenlos für alle. Lizenz: GPL-3.0. Nutz es, remix es, bau drauf auf.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Erste Icons</h2>
+      <p class="lead" style="margin: 0 0 1rem;">Ein Vorgeschmack auf das, was kommt.</p>
+      <div class="preview-grid">
+        <div class="icon-tile" style="background: var(--coral);">📁</div>
+        <div class="icon-tile" style="background: var(--mint);">🌐</div>
+        <div class="icon-tile" style="background: var(--blue);">⚙️</div>
+        <div class="icon-tile" style="background: #FFB020;">📄</div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Roadmap</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Phase 1</h3>
+          <p>100 Basis-Icons für Apps, Places, Mimetypes. Q4 2026.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 2</h3>
+          <p>Flathub Submission + Dark/Light Varianten. Q1 2027.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 3</h3>
+          <p>Kollabs & Community Packs. Du designst mit.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Von der Flasche zum Desktop</h2>
+      <div class="qr-wrap">
+        <div class="qr">QR Code</div>
+        <div>
+          <h3>Scann den Code auf der Kekila-Flasche</h3>
+          <p>
+            Jede Flasche mit Acryl4Flathub-Label hat einen QR Code. 
+            Der führt hierher, zu Updates, zum Repo und zu Behind-the-Scenes vom Malprozess.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <p>© 2026 Acryl4Flathub. Gemalt in Deutschland. Gehostet auf GitHub Pages.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="https://instagram.com/dein-handle" style="color: var(--muted);">Instagram</a> · 
+        <a href="https://github.com/dein-username" style="color: var(--muted);">GitHub</a> · 
+        <a href="mailto:deine@mail.de" style="color: var(--muted);">Kontakt</a>
+      </p>
+    </footer>
+    
+  </div>
+</body>
+</html>
