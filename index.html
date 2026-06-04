@@ -3,338 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acrylic4Flathub – Hand-painted icons for Linux</title>
+<title>Dating ABC | Black Lila Edition</title>
 <style>
-  :root {
-    --bg: #0F1115;
-    --card: #1A1D23;
-    --text: #F5F7FA;
-    --muted: #9AA4B2;
-    --coral: #FF5A5F;
-    --mint: #00C896;
-    --blue: #4D8EFF;
-  }
-  
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-  
-  .logo {
-    width: 100px;
-    height: 100px;
-    background: var(--coral);
-    border-radius: 24px;
-    margin: 0 auto 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
-  }
-  
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .gradient-text {
-    background: linear-gradient(90deg, var(--coral), var(--mint), var(--blue));
-    -webkit-background-clip: text;I'm looking for someone to help me with this
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .lead {
-    font-size: 1.25rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-  }
-  
-  .btn-row {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .btn {
-    padding: 0.9rem 1.8rem;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.2s;
-  }
-  
-  .btn-primary {
-    background: var(--mint);
-    color: var(--bg);
-  }
-  
-  .btn-secondary {
-    background: var(--card);
-    color: var(--text);
-    border: 1px solid #2A2F36;
-  }
-  
-  .btn:hover {
-    transform: translateY(-2px);
-  }
-  
-  section {
-    margin-bottom: 5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--mint);
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .card {
-    background: var(--card);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid #2A2F36;
-  }
-  
-  .card h3 {
-    margin-bottom: 0.5rem;
-    color: var(--blue);
-  }
-  
-  .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .icon-tile {
-    aspect-ratio: 1;
-    background: var(--card);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    transition: 0.2s;
-  }
-  
-  .icon-tile:hover {
-    transform: scale(1.05);
-  }
-  
-  .qr-wrap {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background: var(--card);
-    padding: 2rem;
-    border-radius: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .qr {
-    width: 140px;
-    height: 140px;
-    background: white;
-    border-radius: 16px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-weight: 600;
-  }
-  
-  footer {
-    text-align: center;
-    padding-top: 3rem;
-    border-top: 1px solid #2A2F36;
-    color: var(--muted);
-    font-size: 0.9rem;
-  }
-  
-  @media (max-width: 640px) {
-    h1 { font-size: 2.2rem; }
-    .preview-grid { grid-template-columns: repeat(2, 1fr); }
-    .qr-wrap { flex-direction: column; text-align: center; }
-  }
+:root{
+  --bg: #05050a;
+  --card: #111119;
+  --text: #f5f5ff;
+  --muted: #a78bfa;
+  --accent: #8b5cf6;
+  --accent-2: #c084fc;
+  --glow: rgba(139, 92, 246, 0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(800px 600px at 20% 0%, rgba(139,92,246,.12), transparent 50%),
+              radial-gradient(600px 400px at 80% 100%, rgba(192,132,252,.10), transparent 50%),
+              var(--bg);
+  color: var(--text);
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+.wrap{max-width: 900px;margin: 0 auto;}
+header{text-align: center;margin-bottom: 32px;}
+h1{
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle{color: var(--muted);font-size: 18px;margin-bottom: 24px;}
+
+.controls{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.search{width: 100%;max-width: 400px;}
+.search input{
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(17,17,25,.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139,92,246,.2);
+  border-radius: 14px;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: all.2s;
+}
+.search input:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--glow);
+}
+.btn{
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all.2s;
+}
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--glow);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card{
+  background: rgba(17,17,25,.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139,92,246,.15);
+  border-radius: 18px;
+  padding: 24px;
+  transition: all.25s;
+}
+.card:hover{
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px var(--glow);
+}
+.card.hidden{display: none;}
+.card.highlight{
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px var(--glow), 0 20px 60px rgba(192,132,252,.4);
+  transform: scale(1.03);
+}
+.card h3{font-size: 20px;margin-bottom: 8px;color: var(--accent-2);}
+.card p{color: var(--muted);font-size: 15px;}
+.no-results{text-align: center;color: var(--muted);padding: 40px;display: none;}
+footer{text-align: center;margin-top: 60px;color: var(--muted);font-size: 13px;}
 </style>
 </head>
 <body>
-  
-  <div class="container">
-    
-    <header>
-      
-   <div align="center">
-    <img src="https://f-droid.org/repo/de.moooon.acrylicons/en-US/icon_tQbq0hw4x9qY5IPNCbKJxwNEcnlolT7LVeylJMr02gc=.png" alt="Beschreibung des Bildes">
+<div class="wrap">
+  <header>
+    <h1>Dating ABC</h1>
+    <p class="subtitle">Die dunkle Seite des Datens</p>
+
+    <div class="controls">
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Begriff suchen...">
+      </div>
+      <button class="btn" id="randomBtn">Zufälliger Begriff</button>
+    </div>
+  </header>
+
+  <div class="grid" id="grid">
+    <div class="card" data-name="advodating aktivismus politik klimastreik">
+      <h3>Advodating</h3>
+      <p>Der Klimastreik als Dating-Faktor: Politische Gesinnung zählt. Aktivismus wird zum Attraktivitätsmerkmal.</p>
+    </div>
+    <div class="card" data-name="distanz fernbeziehung kein problem">
+      <h3>Distanz ist kein Problem</h3>
+      <p>Fernbeziehungen werden normaler. Dank Video-Calls ist Abstand kein Dealbreaker mehr.</p>
+    </div>
+    <div class="card" data-name="politische gesinnung politik werte">
+      <h3>Politische Gesinnung zählt</h3>
+      <p>Links oder rechts ist kein Small Talk mehr. Werte und Haltung entscheiden über Match oder Nope.</p>
+    </div>
+    <div class="card" data-name="selfies erstes foto erster eindruck">
+      <h3>Selfies für einen guten ersten Eindruck</h3>
+      <p>Das Profilbild ist die neue Visitenkarte. Authentisch > perfekt bearbeitet.</p>
+    </div>
+    <div class="card" data-name="schnell zusammenziehen nesting">
+      <h3>Schnell Zusammenziehen</h3>
+      <p>Nach wenigen Monaten schon die gemeinsame Wohnung. Trend geht zu "Nesting" statt langem Kennenlernen.</p>
+    </div>
+    <div class="card" data-name="tiefgehende gespräche small talk depth">
+      <h3>Tiefgehende Gespräche statt Small Talk</h3>
+      <p>"Was machst du beruflich?" ist out. Lieber direkt über Ängste, Träume und Werte reden.</p>
+    </div>
+    <div class="card" data-name="ghosting">
+      <h3>Ghosting</h3>
+      <p>Jemand bricht den Kontakt ab ohne Erklärung. Spurlos verschwunden.</p>
+    </div>
+    <div class="card" data-name="breadcrumbing bröselchen">
+      <h3>Breadcrumbing</h3>
+      <p>Bröselchen streuen. Kaum Interesse, aber ab und zu eine Nachricht.</p>
+    </div>
+  </div>
+
+  <div class="no-results" id="noResults">
+    Nichts gefunden in der Black Lila Zone
+  </div>
+
+  <footer>Made with Codeberg</footer>
 </div>
 
-      <h1><span class="gradient-text">Acrylic4Flathub</span></h1>
-      <p class="lead">Painted acrylic icons on canvas as an icon theme for Flathub apps<br>
-      The GitHub repository is actually empty
-      </p>
+<script>
+const searchInput = document.getElementById('searchInput');
+const randomBtn = document.getElementById('randomBtn');
+const cards = document.querySelectorAll('.card');
+const noResults = document.getElementById('noResults');
 
-      <div class="btn-row">
-        <a href="https://github.com/mondlicht-und-sterne/acrylic4flathub/"  target="_blank" class="btn btn-primary">Follow on GitHub</a>
-        <a href="#about" class="btn btn-secondary">Find out more</a>
-      </div>
-    </header>
-    
-    <section id="about">
-      <h2>Why acrylic?</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Handmade</h3>
-          <p>Each symbol is first created as a real acrylic painting on canvas. It is not a digital image created using GIMP or Krita.</p>
-        </div>
-        <div class="card">
-          <h3>Flat & Clean</h3>
-          <p>Stripped down to form and colour. Perfect for Linux desktops such as GNOME, KDE and Linux Mint.</p>
-        </div>
-        <div class="card">
-          <h3>Open Source</h3>
-          <p>Free for everyone. Licence: GPL-3.0. Use it, remix it, build on it.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>First icons</h2>
-      <p class="lead" style="margin: 0 0 1rem;">A taste of things to come.</p>
+searchInput.addEventListener('input', (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  let visibleCount = 0;
 
- <img src="https://pxscdn.com/public/m/_v2/13678/0d402c64b-2701fc/waUCICqbG3We/HxqCcC89fn2VERK5JP1400ihG35sI8mqrFnweoBD.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/31410d826-759a86/lnnDqH8ixQ1q/Zkesa70ZB9LK2w6V9E6cwdKWeJA6kYnQLKjf6sNm.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/31410d826-759a86/RZ4xdaiasYaN/mBwHZnQQ8aL8kMEfypvPzfUbUAVX1RRNV308mZQr.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/31410d826-759a86/EX71DrH0l9n1/AIz0zNfcHv5RP9xiebOzzCED4RGVH9Kd4wOLsMB1.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/31410d826-759a86/qVk1nHlLWLwc/tJsogwPQx8fKNC0eP2AB0t0NBj871Gf4QUgy90Rl.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/mYllmeJafgRs/A4qOy4D7B9iZlOplJZQ7U0JCZVgTSgTKcha52oSN.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/Y6J6wD1kYMOI/jUN92Ih4NwwYR1EC53HjxBFQNSCPTZ7X5zvQgl9m.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/v2D0TM9YTH6E/05jMzG3oI2vB7LpUVvc1a2AZVA4Axn3cYaNh0bub.jpg" height="100" width="100" </a>
-      
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/w7l9dyULxkjI/ERohdn7D05lzDZo6rMVEjQVCbZ1f7zOuKOLwMGFZ.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/QJAYOzMCDQc5/jh7kO5YoR5ovTilzcVbqDVLOFnrxE80611K8BHJX.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/BMYUZsvQjWsL/hNehEBSYdtnbzTeJWyKWyq1ZSeW74P2XupmBunn5.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/r0zrIOStRPd6/An1TmsHXLiOiZryiWPMCqSSZJTkzU6wMa1qzf9Yn.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/hTwo721UlDty/0HBsqvGYfV6hXDR3OWi0wz3ji1TgYBy5Le1Nbx77.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/a1431798c-70628a/MnzmWaFoApXG/gpElYhpw2o5ZqFd0vUfCXR0k3JrMOd3Ow9ypwb0J.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/fbedcc803-0ec729/3Hp6CGb23y4H/uBn0h2bBzfh1SOKNBV9sxw2STnE1ExIQlAnJDyUe.jpg" height="100" width="100" </a>
- <img src="https://pxscdn.com/public/m/_v2/13678/fbedcc803-0ec729/5aAefVb8mFFU/bpUF6PR1pBvXWQkqCkkaaQFZ0yjUHHnrfGvlHOGo.jpg" height="100" width="100" </a>
-   
-    </section>
-    
-    <section>
-      <h2>Roadmap 1 Icon theme</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Phase 1</h3>
-          <p>Find someone who’s give it a try.</p>
-          <p>Completed.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 2</h3>
-          <p>Start programming, tests to show acrylic pictures of Flathub apps.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 3</h3>
-          <p>Create an index.theme / Folder structure.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 4</h3>
-          <p>Write a bash script that auto-resizes pictures into all sizes.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 5</h3>
-          <p>Publish the release / Release the update.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 6</h3>
-          <p>Update the website.</p>
-        </div>
-      </div>
-    </section>
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    if(name.includes(searchTerm) || searchTerm === '') {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
 
-    <section>
-      <h2>Roadmap 2 KEKILA</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Phase 1</h3>
-          <p>Create new labels.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 2</h3>
-          <p>Contact KEKILA again regarding the new labels.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 3</h3>
-          <p>Select a printing company.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 4</h3>
-          <p>Offer for printed labels.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 5</h3>
-          <p>Pay for labels.</p>
-        </div>
-        <div class="card">
-          <h3>Phase 6</h3>
-          <p>Then we'll continue with KEKILA again.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>From the KEKILA bottle to the desktop</h2>
-      <div class="qr-wrap">
-        <div class="qr">QR Code</div>
-        <div>
-          <h3>Scan the code on the KEKILA bottle</h3>
-          <p>
-            Every bottle with an Acrylic4Flathub label has a QR code. 
-            It takes you here, to updates, the repository and behind-the-scenes content.
-          </p>
-        </div>
-      </div>
-    </section>
+  noResults.style.display = visibleCount === 0? 'block' : 'none';
+});
 
-        
-    <footer>
-      <p>2026 Acrylic4Flathub. Painted in Germany. Hosted on GitHub Pages.</p>
-      <p style="margin-top: 0.5rem;">
-        <a href="https://github.com/mondlicht-und-sterne/acrylic4flathub/" target="_blank" rel="noopener noreferrer" style="color: var(--muted);">GitHub</a> · 
-        <a href="https://matrix.to/#/@mondstern:catgirl.cloud" target="_blank" rel="noopener noreferrer" style="color: var(--muted);">Matrix</a> · 
-        <a href="https://mastodon.green/@mondstern" target="_blank" rel="noopener noreferrer" style="color: var(--muted);">Mastodon</a> 
-      </p>
-    </footer>
-   
-    
-  </div>
+randomBtn.addEventListener('click', () => {
+  cards.forEach(c => c.classList.remove('highlight'));
+  searchInput.value = '';
+  cards.forEach(c => c.classList.remove('hidden'));
+  noResults.style.display = 'none';
+
+  const randomIndex = Math.floor(Math.random() * cards.length);
+  const randomCard = cards[randomIndex];
+
+  setTimeout(() => {
+    randomCard.classList.add('highlight');
+    randomCard.scrollIntoView({behavior: 'smooth', block: 'center'});
+  }, 100);
+
+  setTimeout(() => {
+    randomCard.classList.remove('highlight');
+  }, 3000);
+});
+</script>
 </body>
 </html>
