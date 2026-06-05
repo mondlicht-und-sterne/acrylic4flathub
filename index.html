@@ -3,6 +3,222 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dein Name - Texte</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b1020;
+  color:#e8eeff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(2px 2px at 20% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 80% 70%,#aaccff,transparent),
+    radial-gradient(1.5px 1.5px at 50% 50%,#fff,transparent);
+  background-size:250px 250px,350px 350px,200px 200px;
+  animation:twinkle 12s ease-in-out infinite;
+  opacity:.4;
+}
+@keyframes twinkle{0%,100%{opacity:.3}50%{opacity:.7}}
+
+header{text-align:center;padding:70px 20px;position:relative;z-index:1}
+h1{font-size:44px;margin-bottom:10px;letter-spacing:2px}
+header p{opacity:.6;font-size:16px}
+
+.container{max-width:800px;margin:0 auto 100px;padding:0 20px;position:relative;z-index:1}
+
+.year{
+  margin:60px 0 30px;
+  font-size:26px;
+  font-weight:700;
+  opacity:.35;
+  letter-spacing:3px;
+}
+.year::after{
+  content:'';position:absolute;left:0;bottom:-8px;width:50px;height:2px;
+  background:linear-gradient(90deg,#aaccff,transparent)
+}
+
+.grid{display:grid;gap:20px}
+
+.release{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:25px;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+.release:hover{border-color:rgba(170,204,255,.25)}
+
+.release-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.release h3{font-size:22px}
+.badge{
+  background:rgba(170,204,255,.12);
+  padding:3px 10px;
+  border-radius:15px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.badge.album{background:rgba(255,170,204,.12)}
+
+.track{
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  cursor:pointer;
+  transition:.2s;
+}
+.track:last-child{border-bottom:0}
+.track:hover{padding-left:8px}
+.track-title{font-weight:600;font-size:16px;opacity:.9}
+.track-title::before{content:'› ';opacity:.4;margin-right:5px}
+
+.lyrics{
+  display:none;
+  padding:15px 0 10px 15px;
+  font-style:italic;
+  opacity:.8;
+  line-height:2;
+  white-space:pre-line;
+  font-size:15px;
+  border-left:2px solid rgba(170,204,255,.15);
+  margin-top:10px;
+}
+.track.active .lyrics{display:block;animation:fadeIn .4s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<header>
+  <h1>dein Name</h1>
+  <p>Songtexte</p>
+</header>
+
+<div class="container">
+
+  <div class="year">2026</div>
+  <div class="grid">
+    <div class="release">
+      <div class="release-header">
+        <h3>Kopflos</h3>
+        <span class="badge">Single</span>
+      </div>
+      <div class="track active">
+        <div class="track-title">Kopflos</div>
+        <div class="lyrics">kopflos
+ohne arme und ohne beine
+ohne füße ohne hände
+ich bin kopflos
+bin kopflos
+
+kopflos kopflos kopflos
+
+ziellos
+ohne sinn und ohne weg
+ohne fahrt ohne steg
+ich bin ziellos
+bin ziellos
+
+ziellos kopflos ziellos
+
+farblos
+ohne blau und ohne grün
+ohne gelb ohne rot
+ich bin farblos
+bin farblos
+
+farblos ziellos farblos
+
+rastlos
+ohne haus und ohne heim
+ohne rast ohne ruh
+ich bin rastlos
+bin rastlos
+
+rastlos farblos rastlos
+
+zeitlos
+ohne stunden und ohne minuten
+ohne tage ohne jahre
+ich bin zeitlos
+bin zeitlos
+
+zeitlos rastlos zeitlos
+
+besitzlos
+ohne hab und ohne gut
+ohne auto ohne geld
+ich bin besitzlos
+bin besitzlos
+
+besitzlos zeitlos besitzlos
+
+lieblos
+ohne freude und ohne umarmung
+ohne schmerz ohne trauer
+ich bin lieblos
+bin lieblos
+
+lieblos besitzlos lieblos
+
+hilflos
+ohne drei und ohne zwei
+ohne zwei ohne eins
+ich bin hilflos
+bin hilflos
+
+hilflos lieblos hilflos
+
+leblos
+ohne luft und ohne herz
+ohne atem ohne schmerz
+ich bin leblos
+bin leblos
+
+leblos leblos leblos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="year">2025</div>
+  <div class="grid">
+    <div class="release">
+      <div class="release-header">
+        <h3>Album Titel</h3>
+        <span class="badge album">Album</span>
+      </div>
+      <div class="track">
+        <div class="track-title">Track 1</div>
+        <div class="lyrics">Text hier einfügen
+Zeile für Zeile
+Enter = neue Zeile</div>
+      </div>
+      <div class="track">
+        <div class="track-title">Track 2</div>
+        <div class="lyrics">Nächster Text...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.track').forEach(t=>{
+  t.onclick = () => t.classList.toggle('active')
+})
+</script>
+</body>
+</html><!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>dein Name - Diskografie</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
