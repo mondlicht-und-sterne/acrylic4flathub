@@ -1,157 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acrylicons - Ein Icon-Theme für Linux</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .kategorie {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            color: #000; /* Schriftfarbe auf schwarz gesetzt */
-        }
-        .kategorie h2 {
-            margin-top: 0;
-        }
-        .kategorie ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .kategorie li {
-            margin-bottom: 10px;
-        }
-        .sicherheit {
-            background-color: #3498db;
-        }
-        .kommunikation {
-            background-color: #2ecc71;
-        }
-        .produktivitat {
-            background-color: #9b59b6;
-        }
-        .multimedia {
-            background-color: #e74c3c;
-        }
-        .tools {
-            background-color: #1abc9c;
-        }
-        .cloud {
-            background-color: #f1c40f;
-        }
-        .krypto {
-            background-color: #16a085;
-        }
-        .sonstiges {
-            background-color: #7f8c8d;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dein Name - Diskografie</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b1020;
+  color:#e8eeff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(2px 2px at 20% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 80% 70%,#aaccff,transparent);
+  background-size:250px 250px,350px 350px;
+  animation:twinkle 10s ease-in-out infinite;
+  opacity:.5;
+}
+@keyframes twinkle{0%,100%{opacity:.4}50%{opacity:.8}}
+
+header{text-align:center;padding:70px 20px;position:relative;z-index:1}
+h1{font-size:44px;margin-bottom:10px;letter-spacing:2px}
+header p{opacity:.6}
+
+.container{max-width:1000px;margin:0 auto 100px;padding:0 20px;position:relative;z-index:1}
+
+.year{
+  margin:60px 0 30px;
+  font-size:28px;
+  font-weight:700;
+  opacity:.4;
+  letter-spacing:3px;
+  position:relative;
+}
+.year::after{
+  content:'';position:absolute;left:0;bottom:-8px;width:60px;height:2px;
+  background:linear-gradient(90deg,#aaccff,transparent)
+}
+
+.grid{display:grid;gap:25px}
+
+.release{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  padding:28px;
+  backdrop-filter:blur(12px);
+  transition:.3s;
+}
+.release:hover{border-color:rgba(170,204,255,.3);transform:translateY(-3px)}
+
+.release-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.release h3{font-size:24px}
+.badge{
+  background:rgba(170,204,255,.15);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.badge.album{background:rgba(255,170,204,.15)}
+.badge.single{background:rgba(170,255,204,.15)}
+
+.track{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer}
+.track:last-child{border-bottom:0}
+.track:hover{background:rgba(255,255,255,.03);border-radius:8px;padding-left:10px}
+.track-title{font-weight:600;margin-bottom:8px}
+
+audio{width:100%;margin:8px 0;filter:invert(1) hue-rotate(180deg)}
+
+.lyrics{
+  display:none;
+  padding:15px 0 5px;
+  font-style:italic;
+  opacity:.85;
+  line-height:1.9;
+  white-space:pre-line;
+}
+.track.active .lyrics{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1 style="text-align: center;">Acrylicons - Ein Icon-Theme für Linux</h1>
-        <div class="kategorie sicherheit">
-            <h2>Sicherheit & Datenschutz</h2>
-            <ul>
-                <li>Bitwarden</li>
-                <li>Delta Chat</li>
-                <li>Ente Auth</li>
-                <li>NymVPN</li>
-                <li>Onionshare</li>
-                <li>Trezor Suite</li>
-                <li>Tor Browser</li>
-            </ul>
-        </div>
-        <div class="kategorie kommunikation">
-            <h2>Kommunikation & Soziale Netzwerke</h2>
-            <ul>
-                <li>Briar</li>
-                <li>Dino</li>
-                <li>Element</li>
-                <li>Mattermost</li>
-                <li>Mumble</li>
-                <li>SimpleX Chat</li>
-                <li>Manyverse</li>
-            </ul>
-        </div>
-        <div class="kategorie produktivitat">
-            <h2>Produktivität & Büro</h2>
-            <ul>
-                <li>Collabora Office</li>
-                <li>Joplin</li>
-                <li>Mini Diarium</li>
-                <li>OpenTodoList</li>
-                <li>Typora</li>
-                <li>Zettlr</li>
-            </ul>
-        </div>
-        <div class="kategorie multimedia">
-            <h2>Multimedia & Entertainment</h2>
-            <ul>
-                <li>Kodi</li>
-                <li>LMMS</li>
-                <li>mpv Media Player</li>
-                <li>Musik</li>
-                <li>Quod Libet</li>
-                <li>TVHplayer</li>
-                <li>Vinyl</li>
-            </ul>
-        </div>
-        <div class="kategorie tools">
-            <h2>Tools & Utilities</h2>
-            <ul>
-                <li>Addiction Tracker</li>
-                <li>CoMaps</li>
-                <li>Deskflow</li>
-                <li>Emacs</li>
-                <li>Foot</li>
-                <li>Forkgram</li>
-                <li>KOReader</li>
-                <li>MarkText</li>
-                <li>Puzzled</li>
-                <li>Saber</li>
-                <li>Symbolical</li>
-                <li>TickTick</li>
-                <li>Warpinator</li>
-                <li>XL Converter</li>
-                <li>Yt Downloader</li>
-            </ul>
-        </div>
-        <div class="kategorie cloud">
-            <h2>Cloud & Sync</h2>
-            <ul>
-                <li>Nextcloud Desktop</li>
-                <li>Syncara</li>
-            </ul>
-        </div>
-        <div class="kategorie krypto">
-            <h2>Krypto & Blockchain</h2>
-            <ul>
-                <li>Peercoin</li>
-            </ul>
-        </div>
-        <div class="kategorie sonstiges">
-            <h2>Sonstiges</h2>
-            <ul>
-                <li>Godot Engine</li>
-                <li>Meshtastic</li>
-                <li>wger</li>
-                <li>Warble</li>
-            </ul>
-        </div>
+<div class="stars"></div>
+
+<header>
+  <h1>dein Name</h1>
+  <p>Diskografie</p>
+</header>
+
+<div class="container">
+
+  <div class="year">2026</div>
+  <div class="grid">
+    <div class="release">
+      <div class="release-header">
+        <h3>Kopflos</h3>
+        <span class="badge single">Single</span>
+      </div>
+      <div class="track">
+        <div class="track-title">1. Kopflos</div>
+        <audio controls src="2026/kopflos.mp3"></audio>
+        <div class="lyrics">kopflos
+ohne arme und ohne beine
+ohne füße ohne hände
+ich bin kopflos
+bin kopflos
+
+kopflos kopflos kopflos
+
+ziellos
+ohne sinn und ohne weg
+ohne fahrt ohne steg
+ich bin ziellos
+bin ziellos
+
+...hier kommen alle Strophen rein...</div>
+      </div>
     </div>
+  </div>
+
+  <div class="year">2025</div>
+  <div class="grid">
+    <div class="release">
+      <div class="release-header">
+        <h3>Album Name</h3>
+        <span class="badge album">Album</span>
+      </div>
+      <div class="track">
+        <div class="track-title">1. Track 1</div>
+        <audio controls src="2025/track1.mp3"></audio>
+        <div class="lyrics">Text hier einfügen...</div>
+      </div>
+      <div class="track">
+        <div class="track-title">2. Track 2</div>
+        <audio controls src="2025/track2.mp3"></audio>
+        <div class="lyrics">Text hier einfügen...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.track').forEach(t=>{
+  t.onclick = (e) => {
+    if(e.target.tagName !== 'AUDIO') t.classList.toggle('active')
+  }
+})
+</script>
 </body>
 </html>
