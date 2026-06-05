@@ -1,4 +1,220 @@
-<div class="player">
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dein Name - Diskografie</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b1020;
+  color:#e8eeff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(2px 2px at 20% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 80% 70%,#aaccff,transparent);
+  background-size:250px 250px,350px 350px;
+  animation:twinkle 10s ease-in-out infinite;
+  opacity:.5;
+}
+@keyframes twinkle{0%,100%{opacity:.4}50%{opacity:.8}}
+
+header{text-align:center;padding:70px 20px;position:relative;z-index:1}
+h1{font-size:44px;margin-bottom:10px;letter-spacing:2px}
+header p{opacity:.6}
+
+.container{max-width:1000px;margin:0 auto 100px;padding:0 20px;position:relative;z-index:1}
+
+.year{
+  margin:60px 0 30px;
+  font-size:28px;
+  font-weight:700;
+  opacity:.4;
+  letter-spacing:3px;
+}
+.year::after{
+  content:'';position:absolute;left:0;bottom:-8px;width:60px;height:2px;
+  background:linear-gradient(90deg,#aaccff,transparent)
+}
+
+.grid{display:grid;gap:25px}
+
+.release{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  padding:28px;
+  backdrop-filter:blur(12px);
+  transition:.3s;
+}
+.release:hover{border-color:rgba(170,204,255,.3);transform:translateY(-3px)}
+
+.release-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:20px}
+.release h3{font-size:24px}
+.badge{
+  background:rgba(255,170,204,.15);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.badge.single{background:rgba(170,255,204,.15)}
+
+.player{
+  margin:20px 0;
+  padding:15px;
+  background:rgba(0,0,0,.3);
+  border-radius:12px;
+}
+.player audio{width:100%;filter:invert(1) hue-rotate(180deg)}
+.now-playing{font-size:12px;opacity:.6;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+
+.tracklist{margin-top:20px}
+.track{
+  padding:12px 15px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+  border-left:3px solid transparent;
+  margin-bottom:5px;
+}
+.track:hover{background:rgba(255,255,255,.05)}
+.track.active{background:rgba(170,204,255,.1);border-left-color:#aaccff}
+.track-title{font-weight:600;font-size:15px}
+.track-time{font-size:12px;opacity:.5;margin-top:3px}
+
+.lyrics{
+  display:none;
+  padding:15px 0 5px 15px;
+  font-style:italic;
+  opacity:.85;
+  line-height:2;
+  white-space:pre-line;
+  font-size:14px;
+  border-left:2px solid rgba(170,204,255,.2);
+  margin-top:8px;
+}
+.track.active.lyrics{display:block;animation:fadeIn.3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<header>
+  <h1>dein Name</h1>
+  <p>Diskografie</p>
+</header>
+
+<div class="container">
+
+  <div class="year">2026</div>
+  <div class="grid">
+    <div class="release" data-album="kopflos">
+      <div class="release-header">
+        <h3>Kopflos</h3>
+        <span class="badge single">Single</span>
+      </div>
+
+      <div class="player">
+        <div class="now-playing">Jetzt läuft: <span id="now-title-kopflos">Kopflos</span></div>
+        <audio id="player-kopflos" controls></audio>
+      </div>
+
+      <div class="tracklist">
+        <div class="track active" data-src="2026/kopflos.mp3" data-title="Kopflos">
+          <div class="track-title">1. Kopflos</div>
+          <div class="track-time">Klick für Lyrics</div>
+          <div class="lyrics">kopflos
+ohne arme und ohne beine
+ohne füße ohne hände
+ich bin kopflos
+bin kopflos
+
+kopflos kopflos kopflos
+
+ziellos
+ohne sinn und ohne weg
+ohne fahrt ohne steg
+ich bin ziellos
+bin ziellos
+
+...rest vom Text...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="release" data-album="album2025">
+      <div class="release-header">
+        <h3>Album Name</h3>
+        <span class="badge">Album</span>
+      </div>
+
+      <div class="player">
+        <div class="now-playing">Jetzt läuft: <span id="now-title-album2025">-</span></div>
+        <audio id="player-album2025" controls></audio>
+      </div>
+
+      <div class="tracklist">
+        <div class="track" data-src="2025/track1.mp3" data-title="Track 1">
+          <div class="track-title">1. Track 1</div>
+          <div class="track-time">Klick für Lyrics</div>
+          <div class="lyrics">Text Track 1 hier...</div>
+        </div>
+        <div class="track" data-src="2025/track2.mp3" data-title="Track 2">
+          <div class="track-title">2. Track 2</div>
+          <div class="track-time">Klick für Lyrics</div>
+          <div class="lyrics">Text Track 2 hier...</div>
+        </div>
+        <div class="track" data-src="2025/track3.mp3" data-title="Track 3">
+          <div class="track-title">3. Track 3</div>
+          <div class="track-time">Klick für Lyrics</div>
+          <div class="lyrics">Text Track 3 hier...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.release').forEach(album => {
+  const albumId = album.dataset.album;
+  const player = document.getElementById('player-' + albumId);
+  const nowTitle = document.getElementById('now-title-' + albumId);
+  const tracks = album.querySelectorAll('.track');
+
+  function playTrack(track) {
+    tracks.forEach(t => t.classList.remove('active'));
+    track.classList.add('active');
+    player.src = track.dataset.src;
+    nowTitle.textContent = track.dataset.title;
+    player.play();
+  }
+
+  tracks.forEach(track => {
+    track.onclick = () => playTrack(track);
+  });
+
+  player.onended = () => {
+    const current = album.querySelector('.track.active');
+    const next = current.nextElementSibling;
+    if(next && next.classList.contains('track')) {
+      playTrack(next);
+    }
+  };
+
+  // Erstes Lied laden
+  if(tracks[0]) playTrack(tracks[0]);
+});
+</script>
+</body>
+</html><div class="player">
         <div class="now-playing">Jetzt läuft: <span id="now-title-album2025">-</span></div>
         <audio id="player-album2025" controls></audio>
       </div>
