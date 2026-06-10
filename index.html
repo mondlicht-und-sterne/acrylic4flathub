@@ -1,193 +1,150 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Neon Space</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Love FOSS - Apps from Codeberg</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --pink:#ff006e;
-  --purple:#8338ec;
-  --blue:#3a86ff;
-  --mint:#06ffa5;
-  --yellow:#ffbe0b;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #fff;
+  min-height: 100vh;
 }
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#0a0a1a;
-  color:#fff;
-  overflow-x:hidden;
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
 }
-
-/* Animated gradient background */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(circle at 25% 25%, var(--pink), transparent 50%),
-    radial-gradient(circle at 75% 75%, var(--blue), transparent 50%),
-    radial-gradient(circle at 50% 100%, var(--purple), transparent 50%);
-  filter:blur(100px);
-  animation:bgMove 25s ease-in-out infinite;
+.logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 0 20px rgba(255, 212, 0, 0.4));
 }
-@keyframes bgMove{
- 0%,100%{transform:scale(1) rotate(0deg)}
- 33%{transform:scale(1.3) rotate(5deg)}
- 66%{transform:scale(0.9) rotate(-5deg)}
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #FFD400, #FF9D00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
 }
-
-.container{max-width:900px;margin:0 auto;padding:40px 20px}
-
-/* Hero */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+.subtitle { opacity: 0.7; font-size: 1.1rem; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
-.hero h1{
-  font-size:clamp(48px,12vw,120px);
-  font-weight:900;
-  background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--mint));
-  background-size:400% 400%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:grad 5s ease infinite;
-  letter-spacing:-3px;
-  margin-bottom:20px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
 }
-@keyframes grad{
- 0%{background-position:0% 50%}
- 50%{background-position:100% 50%}
- 100%{background-position:0% 50%}
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-.hero p{
-  font-size:20px;
-  opacity:.8;
-  margin-bottom:40px;
-  color:#d0d0ff;
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 212, 0, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 212, 0, 0.25);
 }
-
-/* Bunte Buttons */
-.btns{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}
-.btn{
-  padding:16px 32px;
-  border-radius:50px;
-  font-weight:700;
-  font-size:16px;
-  border:2px solid;
-  background:transparent;
-  color:#fff;
-  cursor:pointer;
-  transition:.3s;
-  text-decoration:none;
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #FFD400;
 }
-.btn.pink{border-color:var(--pink);box-shadow:0 0 20px rgba(255,0,110,.4)}
-.btn.pink:hover{background:var(--pink);box-shadow:0 0 40px rgba(255,0,110,.7)}
-.btn.blue{border-color:var(--blue);box-shadow:0 0 20px rgba(58,134,255,.4)}
-.btn.blue:hover{background:var(--blue);box-shadow:0 0 40px rgba(58,134,255,.7)}
-.btn.mint{border-color:var(--mint);box-shadow:0 0 20px rgba(6,255,165,.4)}
-.btn.mint:hover{background:var(--mint);color:#000;box-shadow:0 0 40px rgba(6,255,165,.7)}
-
-/* Cards Section */
-.section{padding:100px 0}
-.section h2{
-  font-size:42px;
-  text-align:center;
-  margin-bottom:50px;
-  background:linear-gradient(90deg,var(--yellow),var(--mint));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.card p {
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  min-height: 60px;
 }
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:24px;
-  padding:30px;
-  backdrop-filter:blur(10px);
-  transition:.4s;
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #FFD400, #FF9D00);
+  color: #0f0c29;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
-.card:hover{
-  transform:translateY(-8px) scale(1.02);
-  border-color:var(--purple);
-  box-shadow:0 20px 50px rgba(131,56,236,.4);
+.btn:hover { transform: scale(1.05); }
+.btn-outline {
+  background: transparent;
+  border: 2px solid #FFD400;
+  color: #FFD400;
 }
-.card h3{font-size:24px;margin-bottom:12px;color:var(--mint)}
-.card p{opacity:.7;line-height:1.8}
-
-/* Footer */
-footer{text-align:center;padding:60px 20px;opacity:.5;font-size:14px}
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .logo { width: 90px; height: 90px; }
+  .grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-<div class="bg"></div>
+
+<header>
+  <img src="logo.png" alt="We Love Logo" class="logo">
+  <h1>We Love Open Source</h1>
+  <p class="subtitle">Die besten FOSS Apps gehostet auf Codeberg</p>
+</header>
 
 <div class="container">
-  <div class="hero">
-    <h1>Neon Space</h1>
-    <p>Deine mehrfarbige Webseite. Einfach. Laut. Bunt.</p>
-    <div class="btns">
-      <a href="#about" class="btn pink">Mehr erfahren</a>
-      <a href="#work" class="btn blue">Projekte</a>
-      <a href="#contact" class="btn mint">Kontakt</a>
+  <div class="grid">
+    
+    <!-- CoMaps Card -->
+    <div class="card">
+      <h3>CoMaps</h3>
+      <p>Free offline maps for everyone. Navigate without tracking, komplett offline nutzbar.</p>
+      <a href="https://flathub.org/de/apps/app.comaps.comaps" class="btn">Flathub</a>
+      <a href="https://codeberg.org/comaps" class="btn btn-outline">Codeberg</a>
     </div>
-  </div>
 
-  <div class="section" id="about">
-    <h2>Was geht</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>🎨 Farben</h3>
-        <p>Gradient-Hintergrund der sich bewegt. Titel mit Regenbogen-Animation. Nix langweiliges Grau hier.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Schnell</h3>
-        <p>Reines HTML+CSS. Kein Framework. Lädt instant auf Handy und Desktop.</p>
-      </div>
-      <div class="card">
-        <h3>📱 Responsive</h3>
-        <p>Passt sich automatisch an. Sieht aufm Handy genauso fett aus wie am PC.</p>
-      </div>
+    <!-- DeltaTouch Card -->
+    <div class="card">
+      <h3>DeltaTouch</h3>
+      <p>Decentralized secure messenger. Chat ohne Server, Ende-zu-Ende verschlüsselt.</p>
+      <a href="https://flathub.org/de/apps/page.codeberg.lk108.deltatouch" class="btn">Flathub</a>
+      <a href="https://codeberg.org/lk108/deltatouch" class="btn btn-outline">Codeberg</a>
     </div>
-  </div>
 
-  <div class="section" id="work">
-    <h2>Projekte</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Projekt Eins</h3>
-        <p>Beschreibung von deinem ersten Ding. Text hier ändern.</p>
-      </div>
-      <div class="card">
-        <h3>Projekt Zwei</h3>
-        <p>Zweites Projekt rein. Bild kannst du später noch dazu packen.</p>
-      </div>
-      <div class="card">
-        <h3>Projekt Drei</h3>
-        <p>Und das dritte. Einfach Card kopieren für mehr.</p>
-      </div>
+    <!-- Filmbook Card -->
+    <div class="card">
+      <h3>Filmbook</h3>
+      <p>Track analog film usage in cameras. Vergiss nie wieder welche Filme in welcher Kamera sind.</p>
+      <a href="https://flathub.org/de/apps/page.codeberg.bjawebos.Filmbook" class="btn">Flathub</a>
+      <a href="https://codeberg.org/bjawebos/filmbook" class="btn btn-outline">Codeberg</a>
     </div>
-  </div>
 
-  <div class="section" id="contact">
-    <h2>Sag Hallo</h2>
-    <div style="text-align:center">
-      <p style="font-size:18px;margin-bottom:30px;opacity:.8">Lust auf was buntes? Schreib mir.</p>
-      <a href="mailto:mail@example.com" class="btn pink">E-Mail schreiben</a>
+    <!-- Vinyl Card -->
+    <div class="card">
+      <h3>Vinyl</h3>
+      <p>Simple Adwaita music player. Minimalistisch, schnell, passt perfekt zu GNOME.</p>
+      <a href="https://flathub.org/de/apps/page.codeberg.M23Snezhok.Vinyl" class="btn">Flathub</a>
+      <a href="https://codeberg.org/M23Snezhok/Vinyl" class="btn btn-outline">Codeberg</a>
     </div>
-  </div>
 
-  <footer>
-    © 2026 Neon Space • Made with 💜
-  </footer>
+  </div>
 </div>
+
+<footer>
+  Made with ❤️ on Codeberg Pages | FOSS only
+</footer>
 
 </body>
 </html>
