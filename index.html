@@ -58,7 +58,93 @@
     .download-btn { display: block; width: fit-content; margin: 0 auto; padding: 16px 32px; background: linear-gradient(90deg, #7c3aed, #6d28d9); color: white; text-decoration: none; border-radius: 14px; font-weight: bold; font-size: 1.1em; transition: transform 0.2s; }
     .download-btn:hover { transform: scale(1.05); }
 
-    /* NEU: Footer */
+    /* NEU: Story Headline */
+    .story-headline {
+      text-align: center;
+      margin: 60px 0 30px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .story-headline h2 {
+      font-size: 2.2em;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .story-headline p {
+      color: #bbb;
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* NEU: QR + Text Box */
+    .qr-download-box {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 0 0 50px 0;
+      flex-wrap: wrap;
+    }
+    .qr-box {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed rgba(167, 139, 250, 0.5);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .qr-box p {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #a78bfa;
+      margin: 0;
+    }
+    .qr-box span {
+      font-size: 0.85em;
+      color: #aaa;
+      margin-top: 8px;
+    }
+    .qr-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .qr-text h3 {
+      color: #a78bfa;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.3em;
+    }
+    .qr-text p {
+      color: #bbb;
+      line-height: 1.7;
+      margin: 8px 0;
+    }
+    .qr-text a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+    .qr-text a:hover { text-decoration: underline; }
+    .qr-text code {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    /* Footer */
     footer {
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
@@ -134,16 +220,36 @@
       </div>
     </div>
 
+    <!-- NEU: Story + QR -->
+    <div class="story-headline">
+      <h2>From the KEKILA bottle to the desktop</h2>
+      <p>Vom Parfum-Flakon direkt auf deinen Linux Desktop. Der Acryl-Glas Look von KEKILA jetzt als Icon Theme.</p>
+    </div>
+
+    <div class="qr-download-box">
+      <div class="qr-box">
+        <p>QR Code</p>
+        <span>Scanne für Download</span>
+      </div>
+      <div class="qr-text">
+        <h3>Scan the code on the KEKILA bottle</h3>
+        <p>Every bottle with an Acrylicons label has a QR code.</p>
+        <p>Scan this QR code, Download the .zip file from the latest release at <a href="https://codeberg.org/mondstern/Acrylicons/releases" target="_blank">codeberg.org/mondstern/Acrylicons/releases</a></p>
+        <p>Extract the .zip file, run the <code>install.sh</code> script.</p>
+        <p>Select the ‘Acrylicons’ icon theme from the settings.<br>
+        <code>Settings / Themen / Symbole / Acrylicons</code></p>
+      </div>
+    </div>
+
     <div id="download" class="section">
       <a href="Acrylicons-v1.0.zip" class="download-btn">⬇ Download v1.0</a>
     </div>
   </div>
 
-  <!-- NEU: Footer -->
   <footer>
     <p>© 2026 KEKILA | Acrylicons v1.0</p>
     <p>
-      <a href="https://codeberg.org/DEIN-NAME/Acrylicons" target="_blank">Codeberg Repo</a>
+      <a href="https://codeberg.org/mondstern/Acrylicons" target="_blank">Codeberg Repo</a>
       <a href="https://opensource.org/licenses/MIT" target="_blank">Lizenz: MIT</a>
       <a href="mailto:DEINE-EMAIL">Kontakt</a>
     </p>
