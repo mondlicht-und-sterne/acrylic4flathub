@@ -1,132 +1,134 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Hey ich bin Mondstern</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: Arial, sans-serif;
-            color: #fff;
-            scroll-behavior: smooth;
-        }
-        
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: #000;
-            padding: 15px;
-            text-align: center;
-            z-index: 10;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover { text-decoration: underline; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mondstern Acrylic Icons - Linux</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #0a0a1a;
+    background-image: 
+      radial-gradient(circle at 20% 50%, #5a189a 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, #9d4edd 0%, transparent 50%);
+    color: #e0e0ff;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
 
-        /* Themen-Sektionen - jede hat eigene Farbe */
-        section {
-            padding: 80px 20px;
-            min-height: 100vh;
-            text-align: center;
-        }
-        h1 { font-size: 3em; margin-bottom: 20px; }
-        h2 { font-size: 2em; margin-bottom: 15px; }
-        p { max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; }
 
-        /* Thema 1: Palapeli - Dunkelblau/Mond */
-        #palapeli { 
-            background: linear-gradient(135deg, #1a1a2e, #0f3460);
-        }
-        #palapeli .star:hover { color: #ffd700; } /* goldene Sterne */
+  .card {
+    background: rgba(20, 10, 40, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(90, 24, 154, 0.4);
+    margin-bottom: 40px;
+  }
 
-        /* Thema 2: Icons - Lila/Pink */
-        #icons { 
-            background: linear-gradient(135deg, #5a189a, #c77dff);
-        }
-        #icons .star:hover { color: #ff9f1c; } /* orange Sterne */
+  h1 {
+    font-size: 3em;
+    background: linear-gradient(90deg, #c77dff, #ff9e00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  
+  .stars { color: #c77dff; animation: twinkle 2s infinite; }
+  @keyframes twinkle { 0%,100% {opacity:1} 50% {opacity:0.3} }
 
-        /* Thema 3: Fotos - Grün/Türkis */
-        #fotos { 
-            background: linear-gradient(135deg, #004e64, #00a6a6);
-        }
-        #fotos .star:hover { color: #7bf1a8; } /* hellgrüne Sterne */
+  .buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  
+  .btn {
+    background: linear-gradient(135deg, #5a189a, #9d4edd);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(157, 78, 221, 0.5);
+  }
+  .btn.secondary { background: rgba(255,255,255,0.1); }
 
-        /* Thema 4: Kontakt - Rot/Orange */
-        #kontakt { 
-            background: linear-gradient(135deg, #9d0208, #faa307);
-        }
-        #kontakt .star:hover { color: #ffffff; } /* weiße Sterne */
-
-        /* Stern Hover Effekt */
-        .star {
-            color: rgba(255,255,255,0.3);
-            text-decoration: none;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-            margin-left: 10px;
-        }
-        .star:hover {
-            transform: scale(1.3) rotate(15deg);
-        }
-
-        /* Download Button */
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-            border: 2px solid #fff;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-        .btn:hover { background: rgba(255,255,255,0.4); }
-
-    </style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .icon-box {
+    background: rgba(20, 10, 40, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    transition: 0.3s;
+  }
+  .icon-box:hover {
+    transform: scale(1.08);
+    border-color: #c77dff;
+  }
+  .icon-box img { width: 64px; height: 64px; }
+  
+  code {
+    background: rgba(0,0,0,0.4);
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #c77dff;
+  }
+</style>
 </head>
 <body>
+  <div class="container">
+    <div class="card">
+      <h1><span class="stars">★</span> Mondstern Acrylic Icons <span class="stars">★</span></h1>
+      <p style="font-size: 1.2em; opacity: 0.8; margin: 20px 0;">
+        Ein modernes Icon Theme im Acryl-Glas Look für Linux Desktops<br>
+        Kompatibel mit KDE, GNOME, Cinnamon, XFCE
+      </p>
+      
+      <div class="buttons">
+        <a href="Mondstern-Acrylic-Icons.tar.gz" class="btn">📦 Download Theme</a>
+        <a href="https://www.opendesktop.org" class="btn secondary">opendesktop.org</a>
+        <a href="https://codeberg.org/mondstern" class="btn secondary">Quellcode</a>
+      </div>
+    </div>
 
-    <nav>
-        <a href="#palapeli">Palapeli</a>
-        <a href="#icons">Icons</a>
-        <a href="#fotos">Fotos</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
+    <div class="card">
+      <h2>Installation</h2>
+      <p style="opacity: 0.7; margin: 20px 0;">Entpacken nach:</p>
+      <code>~/.local/share/icons/</code>
+      <p style="opacity: 0.7; margin-top: 20px;">Dann in den Systemeinstellungen aktivieren</p>
+    </div>
 
-    <!-- THEMA 1: PALAPELI -->
-    <section id="palapeli">
-        <h1>Hey ich bin Mondstern <a href="#" class="star">★</a></h1>
-        <h2>Palapeli Puzzles</h2>
-        <p>Selbstgemachte Puzzles zum Runterladen. Einfach .zip laden und in Palapeli öffnen.</p>
-        <a class="btn" href="mond-puzzle.zip" download>📦 Mond-Puzzle laden</a>
-    </section>
-
-    <!-- THEMA 2: ICONS -->
-    <section id="icons">
-        <h2>Mondstern Acrylic Icons <a href="#" class="star">★</a></h2>
-        <p>Meine Icon-Sammlung für Android. Über 200 Apps im Acryl-Look.</p>
-        <a class="btn" href="https://acrylicicons.codeberg.page/" target="_blank">Zur Icon-Seite</a>
-    </section>
-
-    <!-- THEMA 3: FOTOS -->
-    <section id="fotos">
-        <h2>Fotografie <a href="#" class="star">★</a></h2>
-        <p>Dresden bei Nacht, Sterne und Mond. Hier gibt's bald eine Galerie.</p>
-        <a class="btn" href="#">Bald verfügbar</a>
-    </section>
-
-    <!-- THEMA 4: KONTAKT -->
-    <section id="kontakt">
-        <h2>Kontakt <a href="#" class="star">★</a></h2>
-        <p>Schreib mir gern auf Codeberg oder per Mail.</p>
-        <a class="btn" href="https://codeberg.org/mondstern">Zu Codeberg</a>
-    </section>
-
+    <div class="card">
+      <h2>Vorschau</h2>
+      <p style="opacity: 0.7; margin-bottom: 20px;">Ordner, Apps und System-Icons im Acryl-Stil</p>
+      <div class="gallery">
+        <div class="icon-box"><img src="folder.png" alt="Ordner"><p>Ordner</p></div>
+        <div class="icon-box"><img src="firefox.png" alt="Firefox"><p>Firefox</p></div>
+        <div class="icon-box"><img src="terminal.png" alt="Terminal"><p>Terminal</p></div>
+        <div class="icon-box"><img src="settings.png" alt="Einstellungen"><p>Einstellungen</p></div>
+        <div class="icon-box"><img src="files.png" alt="Dateien"><p>Dateien</p></div>
+        <div class="icon-box"><img src="music.png" alt="Musik"><p>Musik</p></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
