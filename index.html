@@ -3,104 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acrylicons v1.0</title>
+  <title>Acrylicons v1.0 - Acryl Icon Theme</title>
   
   <link rel="icon" href="favicon.png" type="image/png">
 
   <style>
+    html { scroll-behavior: smooth; }
+    
     body {
       margin: 0;
       font-family: system-ui, -apple-system, sans-serif;
       background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
       color: #eee;
-      text-align: center;
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 40px 20px;
+      flex: 1;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(30, 30, 46, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 20px; z-index: 1000; text-align: center;
     }
-    .subtitle {
-      color: #aaa;
-      margin-bottom: 40px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto 40px;
-    }
-    .icon-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 20px;
+    .navbar a { color: #ddd; text-decoration: none; margin: 0 20px; font-weight: 500; transition: color 0.2s; }
+    .navbar a:hover { color: #a78bfa; }
+
+    h1 { font-size: 3em; margin-bottom: 10px; text-align: center; background: linear-gradient(90deg, #a78bfa, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { font-size: 1.2em; color: #aaa; text-align: center; margin-bottom: 10px; }
+    .features { color: #bbb; text-align: center; margin-bottom: 40px; font-size: 1em; }
+    
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin: 0 auto 50px; }
+    .icon-box { background: rgba(255, 255, 255, 0.05); padding: 24px; border-radius: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; transition: transform 0.2s, background 0.2s; }
+    .icon-box:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.1); }
+    .icon-box img { width: 100px; height: 100px; border-radius: 22px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+    .icon-box p { margin-top: 14px; font-size: 1em; color: #ddd; font-weight: 500; }
+    
+    .section { background: rgba(255, 255, 255, 0.04); padding: 30px; border-radius: 20px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.08); scroll-margin-top: 80px; }
+    .section h2 { margin-top: 0; color: #a78bfa; }
+    .install-steps { text-align: left; line-height: 1.8; }
+    .install-steps code { background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 6px; font-family: monospace; }
+    .changelog { text-align: left; }
+    .changelog ul { list-style: none; padding-left: 0; }
+    .changelog li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .changelog li:before { content: "✓ "; color: #7c3aed; font-weight: bold; margin-right: 8px; }
+    .download-btn { display: block; width: fit-content; margin: 0 auto; padding: 16px 32px; background: linear-gradient(90deg, #7c3aed, #6d28d9); color: white; text-decoration: none; border-radius: 14px; font-weight: bold; font-size: 1.1em; transition: transform 0.2s; }
+    .download-btn:hover { transform: scale(1.05); }
+
+    /* NEU: Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
-      transition: transform 0.2s;
-    }
-    .icon-box:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .icon-box img { 
-      width: 80px; 
-      height: 80px; 
-      border-radius: 18px; /* macht die Acryl-Bilder rund */
-      object-fit: cover;
-    }
-    .icon-box p {
-      margin-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px 20px;
+      text-align: center;
+      color: #aaa;
       font-size: 0.9em;
-      color: #ccc;
     }
-    .download-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #7c3aed;
-      color: white;
+    footer a {
+      color: #a78bfa;
       text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: background 0.2s;
+      margin: 0 12px;
     }
-    .download-btn:hover {
-      background: #6d28d9;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <h1>Acrylicons v1.0</h1>
-  <p class="subtitle">Handgemalte Acryl-Icons für Linux</p>
+  <nav class="navbar">
+    <a href="#installation">Installation</a>
+    <a href="#changelog">Changelog</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#download">Download</a>
+  </nav>
 
-  <div class="gallery">
-    <div class="icon-box">
-      <img src="preview/icon1.jpg" alt="Abstrakt">
-      <p>Abstrakt</p>
+  <div class="container">
+    <h1>Acrylicons</h1>
+    <p class="subtitle">Ein modernes Icon Theme im Acryl-Glas Look für Linux Desktops</p>
+    <p class="features">Kompatibel mit KDE, GNOME, Cinnamon, XFCE</p>
+
+    <div class="gallery">
+      <div class="icon-box"><img src="preview/braun-abstrakt.jpg" alt="Abstrakt"><p>Abstrakt</p></div>
+      <div class="icon-box"><img src="preview/gruen-blatt.jpg" alt="Natur"><p>Natur</p></div>
+      <div class="icon-box"><img src="preview/gelb-ordner.jpg" alt="Ordner"><p>Ordner</p></div>
+      <div class="icon-box"><img src="preview/blau-download.jpg" alt="Download"><p>Download</p></div>
+      <div class="icon-box"><img src="preview/lila-musik.jpg" alt="Musik"><p>Musik</p></div>
+      <div class="icon-box"><img src="preview/rot-video.jpg" alt="Video"><p>Video</p></div>
     </div>
-    <div class="icon-box">
-      <img src="preview/icon2.jpg" alt="Natur">
-      <p>Natur</p>
+
+    <div id="installation" class="section">
+      <h2>Installation</h2>
+      <div class="install-steps">
+        <p><b>1. Download</b><br>Lad dir <code>Acrylicons-v1.0.zip</code> runter und entpacke es.</p>
+        <p><b>2. Ordner verschieben</b><br>Verschiebe den Ordner <code>Acrylicons</code> nach:<br><code>~/.local/share/icons/</code></p>
+        <p><b>3. Theme aktivieren</b></p>
+        <b>KDE Plasma:</b> Systemeinstellungen → Erscheinungsbild → Symbole<br>
+        <b>GNOME:</b> Gnome Tweaks → Erscheinungsbild → Symbole
+      </div>
     </div>
-    <div class="icon-box">
-      <img src="preview/icon3.jpg" alt="Ordner">
-      <p>Ordner</p>
+
+    <div id="changelog" class="section">
+      <h2>Changelog</h2>
+      <div class="changelog">
+        <h3>v1.0 - 04.04.2026</h3>
+        <ul>
+          <li>Erste Veröffentlichung</li>
+          <li>6 handgemalte Acryl-Icons im Glas-Look</li>
+          <li>Kompatibilität für KDE, GNOME, Cinnamon, XFCE</li>
+        </ul>
+      </div>
     </div>
-    <div class="icon-box">
-      <img src="preview/icon4.jpg" alt="Download">
-      <p>Download</p>
+
+    <div id="roadmap" class="section">
+      <h2>KEKILA Roadmap</h2>
+      <div class="gallery" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="icon-box"><h3>v1.1 - Mehr Icons</h3><p>Ausbau auf 50+ Icons.</p></div>
+        <div class="icon-box"><h3>v1.2 - Dark & Light</h3><p>Dunkle und helle Varianten.</p></div>
+        <div class="icon-box"><h3>v1.5 - App-Coverage</h3><p>200+ Linux Apps.</p></div>
+        <div class="icon-box"><h3>v2.0 - Animierte Icons</h3><p>Für KDE Plasma.</p></div>
+        <div class="icon-box"><h3>v2.1 - Community Packs</h3><p>+ Wallpaper + Cursor.</p></div>
+        <div class="icon-box"><h3>v3.0 - KEKILA Suite</h3><p>Vollständiges Desktop Theme.</p></div>
+      </div>
     </div>
-    <div class="icon-box">
-      <img src="preview/icon5.jpg" alt="Musik">
-      <p>Musik</p>
-    </div>
-    <div class="icon-box">
-      <img src="preview/icon6.jpg" alt="Video">
-      <p>Video</p>
+
+    <div id="download" class="section">
+      <a href="Acrylicons-v1.0.zip" class="download-btn">⬇ Download v1.0</a>
     </div>
   </div>
 
-  <a href="Acrylicons-v1.0.zip" class="download-btn">⬇ Download v1.0</a>
+  <!-- NEU: Footer -->
+  <footer>
+    <p>© 2026 KEKILA | Acrylicons v1.0</p>
+    <p>
+      <a href="https://codeberg.org/DEIN-NAME/Acrylicons" target="_blank">Codeberg Repo</a>
+      <a href="https://opensource.org/licenses/MIT" target="_blank">Lizenz: MIT</a>
+      <a href="mailto:DEINE-EMAIL">Kontakt</a>
+    </p>
+    <p>Gemacht mit ♥ für Linux</p>
+  </footer>
 
 </body>
 </html>
