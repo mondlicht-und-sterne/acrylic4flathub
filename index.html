@@ -2,94 +2,76 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Acrylicons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mondstern</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0d0d0f;color:#fff;min-height:100vh;overflow-x:hidden}
-.bg{position:fixed;inset:0;pointer-events:none;opacity:.7;filter:blur(80px);transition:all.9s ease;z-index:0}
-.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:rgba(16,16,18,.75);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);gap:12px}
-.pills{display:flex;gap:10px;flex-wrap:wrap}
-.pill{padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#a1a1aa;cursor:pointer;font-size:14px;font-weight:700;transition:all.35s}
-.pill.active{color:#fff;transform:scale(1.06)}
-.lang{display:flex;gap:4px;background:rgba(255,255,255,.06);padding:4px;border-radius:999px;border:1px solid rgba(255,255,255,.08)}
-.lang button{background:transparent;border:0;color:#888;padding:6px 12px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:800;transition:.3s}
-.lang button.active{background:#fff;color:#000}
-main{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:120px 24px 80px;text-align:center}
-h1{font-size:clamp(2.8rem,9vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:.9;margin-bottom:18px;transition:all.6s}
-.sub{font-size:clamp(1rem,2vw,1.15rem);color:#a1a1aa;max-width:620px;line-height:1.6;margin:0 auto;white-space:normal}
-.hint{margin-top:48px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.25}
-@media(max-width:700px){.nav{flex-direction:column;align-items:stretch}.pills{justify-content:center}.lang{align-self:center}}
+  body{background:#0a0a0a;color:#eee;font-family:system-ui,sans-serif;margin:0;padding:20px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.pill{padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;transition:.3s;border:2px solid transparent}
+.pill.active{color:#000;transform:scale(1.05)}
+.content{max-width:700px}
+.title{font-size:32px;font-weight:800;margin-bottom:10px}
+.sub{font-size:18px;line-height:1.6;opacity:.9}
+.sub a{color:#22ff88;text-decoration:none;border-bottom:1px solid #22ff88;padding-bottom:2px;transition:.3s}
+.sub a:hover{color:#fff;border-bottom-color:#fff;box-shadow:0 0 15px #22ff88}
 </style>
 </head>
 <body>
-<div class="bg" id="bg"></div>
-<div class="nav">
-  <div class="pills" id="pills"></div>
-  <div class="lang" id="langSwitch"></div>
+
+<div class="pills" id="pills"></div>
+<div class="content">
+  <div class="title" id="title"></div>
+  <div class="sub" id="sub"></div>
 </div>
-<main>
-  <div>
-    <h1 id="title"></h1>
-    <div class="sub" id="sub"></div>
-  </div>
-</main>
+
 <script>
 const menu = [
-  { id:'start', color:'#ff3b45', de:{label:'Startseite', title:'Startseite', sub:'Willkommen.'}, en:{label:'Home', title:'Home', sub:'Welcome.'} },
+  { id:'start', color:'#ff3b45', de:{label:'Startseite', title:'Startseite', sub:'Im Oktober 2018 hatte ich angefangen, Acrylbilder zu malen.'}, en:{label:'Home', title:'Home', sub:'In October 2018 I had started to paint acrylic pictures.'} },
   { id:'acrylicons', color:'#3b82ff', de:{label:'Acrylicons', title:'Acrylicons', sub:'Arbeiten aus Acryl.<br><br>Hier kannst du jetzt so viel schreiben wie du willst.<br><br>Absatz 2: Material ist Acryl auf Leinwand, mit Licht und Transparenz.<br><br>Absatz 3: Format 60x80cm bis 120x150cm.'}, en:{label:'Acrylicons', title:'Acrylicons', sub:'Acrylic works.<br><br>You can now write as much as you want here.<br><br>Second paragraph: Material is acrylic on canvas.'} },
   { id:'notizen', color:'#ffe600', de:{label:'Notizen', title:'Notizen', sub:'Gedanken und Notizen.'}, en:{label:'Notes', title:'Notes', sub:'Thoughts and notes.'} },
   { id:'ausstellungen', color:'#a855f7', de:{label:'Ausstellungen', title:'Ausstellungen', sub:'Wo und wann zu sehen.'}, en:{label:'Exhibitions', title:'Exhibitions', sub:'Where and when.'} },
-  { id:'links', color:'#22ff88', de:{label:'Links', title:'Links', sub:'Weiterführendes.'}, en:{label:'Links', title:'Links', sub:'Further reading.'} }
+  { id:'links', color:'#22ff88', de:{label:'Links', title:'Links', sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener">Loops – @mondstern</a>`}, en:{label:'Links', title:'Links', sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener">Loops – @mondstern</a>`} }
 ];
-const langs=['de','en'];
-let curLang='de';
-let curId='start';
 
-function render(){
-  const params=new URLSearchParams(location.search);
-  if(params.get('lang') && langs.includes(params.get('lang'))) curLang=params.get('lang');
-  if(params.get('page') && menu.find(m=>m.id===params.get('page'))) curId=params.get('page');
-  buildPills();buildLang();update();
+const pillsEl = document.getElementById('pills');
+const titleEl = document.getElementById('title');
+const subEl = document.getElementById('sub');
+
+function getLang(){
+  const url = new URLSearchParams(window.location.search);
+  return url.get('lang') === 'en'? 'en' : 'de';
 }
-function buildPills(){
-  const pills=document.getElementById('pills');pills.innerHTML='';
+function getPage(){
+  const url = new URLSearchParams(window.location.search);
+  return url.get('page') || 'start';
+}
+let currentLang = getLang();
+
+function render(activeId){
+  const lang = currentLang;
+  pillsEl.innerHTML = '';
   menu.forEach(m=>{
-    const b=document.createElement('button');
-    b.className='pill'+(m.id===curId?' active':'');
-    b.textContent=m[curLang].label;
-    if(m.id===curId){b.style.background=m.color;b.style.color=m.color==='#ffe600'?'#000':'#fff';b.style.borderColor=m.color;b.style.boxShadow='0 0 30px '+m.color;}
-    b.onclick=()=>{curId=m.id;update();};pills.appendChild(b);
+    const d = document.createElement('div');
+    d.className = 'pill' + (m.id===activeId?' active':'');
+    d.textContent = m[lang].label;
+    d.style.borderColor = m.color;
+    d.style.color = m.id===activeId? '#000' : m.color;
+    d.style.background = m.id===activeId? m.color : 'transparent';
+    d.style.boxShadow = m.id===activeId? `0 0 20px ${m.color}` : 'none';
+    d.onclick = ()=>{
+      history.pushState({},'',`?lang=${lang}&page=${m.id}`);
+      render(m.id);
+    };
+    pillsEl.appendChild(d);
   });
+  const active = menu.find(m=>m.id===activeId) || menu[0];
+  titleEl.textContent = active[lang].title;
+  titleEl.style.color = active.color;
+  subEl.innerHTML = active[lang].sub;
 }
-function buildLang(){
-  const ls=document.getElementById('langSwitch');ls.innerHTML='';
-  langs.forEach(l=>{
-    const btn=document.createElement('button');
-    btn.textContent=l.toUpperCase();
-    btn.className=(l===curLang)?'active':'';
-    btn.onclick=()=>{curLang=l;buildPills();update();};
-    ls.appendChild(btn);
-  });
-}
-function update(){
-  const m=menu.find(x=>x.id===curId);
-  document.getElementById('title').textContent=m[curLang].title;
-  document.getElementById('title').style.color=m.color;
-  document.getElementById('title').style.textShadow='0 0 70px '+m.color;
-  document.getElementById('sub').innerHTML=m[curLang].sub;
-  document.getElementById('bg').style.background='radial-gradient(650px 450px at 50% 15%, '+m.color+'66, transparent 70%), radial-gradient(900px 650px at 85% 85%, '+m.color+'44, transparent 65%)';
-  document.querySelectorAll('.pill').forEach((el,i)=>{
-    const it=menu[i];
-    if(it.id===curId){el.classList.add('active');el.style.background=it.color;el.style.color=it.color==='#ffe600'?'#000':'#fff';el.style.borderColor=it.color;el.style.boxShadow='0 0 30px '+it.color;}
-    else{el.classList.remove('active');el.style.background='rgba(255,255,255,.06)';el.style.color='#a1a1aa';el.style.borderColor='rgba(255,255,255,.15)';el.style.boxShadow='none';}
-  });
-  document.querySelectorAll('.lang button').forEach((el,i)=>{
-    if(langs[i]===curLang) el.classList.add('active'); else el.classList.remove('active');
-  });
-  history.replaceState(null,'','?lang='+curLang+'&page='+curId);
-}
-render();
+
+render(getPage());
+window.onpopstate = ()=>{ currentLang = getLang(); render(getPage()); };
 </script>
 </body>
 </html>
