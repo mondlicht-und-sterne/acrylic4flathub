@@ -6,18 +6,18 @@
 <title>mondstern</title>
 <style>
   body{background:#0a0a0a;color:#eee;font-family:system-ui,sans-serif;margin:0;padding:20px}
- .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
- .lang{display:flex;gap:8px}
- .lang div{padding:6px 12px;border:1px solid #333;border-radius:999px;cursor:pointer;font-size:14px}
- .lang div.active{background:#fff;color:#000;border-color:#fff}
- .pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
- .pill{padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;transition:.3s;border:2px solid transparent}
- .pill.active{color:#000;transform:scale(1.05)}
- .content{max-width:700px}
- .title{font-size:32px;font-weight:800;margin-bottom:10px}
- .sub{font-size:18px;line-height:1.6;opacity:.9}
- .sub a{color:#22ff88;text-decoration:none;border-bottom:1px solid #22ff88;padding-bottom:2px}
- .sub a:hover{color:#fff;border-bottom-color:#fff}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.lang{display:flex;gap:8px}
+.lang div{padding:6px 12px;border:1px solid #333;border-radius:999px;cursor:pointer;font-size:14px}
+.lang div.active{background:#fff;color:#000;border-color:#fff}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.pill{padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;transition:.3s;border:2px solid transparent}
+.pill.active{color:#000;transform:scale(1.05)}
+.content{max-width:700px}
+.title{font-size:32px;font-weight:800;margin-bottom:10px}
+.sub{font-size:18px;line-height:1.6;opacity:.9}
+.sub a{color:#22ff88;text-decoration:none;border-bottom:1px solid #22ff88;padding-bottom:2px}
+.sub a:hover{color:#fff;border-bottom-color:#fff}
 </style>
 </head>
 <body>
@@ -35,31 +35,18 @@
 
 <script>
 const menu = [
-  { id:'start', color:'#ff3b45', 
-   de:{label:'Startseite', 
-       title:'Startseite', 
-       sub:'Im Oktober 2018 hatte ich angefangen, Acrylbilder zu malen.'}, 
-   en:{label:'Home', 
-       title:'Home', 
-       sub:'In October 2018 I had started to paint acrylic pictures.'} },
-  { id:'acrylicons', color:'#3b82ff', 
-   de:{label:'Acrylicons', 
-       title:'Acrylicons', 
-       sub:'Arbeiten aus Acryl.<br><br>Hier kannst du jetzt so viel schreiben wie du willst.<br><br>Absatz 2: Material ist Acryl auf Leinwand, mit Licht und Transparenz.<br><br>Absatz 3: Format 60x80cm bis 120x150cm.'}, 
-   en:{label:'Acrylicons', 
-       title:'Acrylicons', 
-       sub:'Acrylic works.<br><br>You can now write as much as you want here.<br><br>Second paragraph: Material is acrylic on canvas.'} },
-  { id:'notizen', color:'#ffe600', 
-   de:{label:'Notizen', 
-       title:'Notizen', 
-       sub:'Gedanken und Notizen.'}, 
-   en:{label:'Notes', 
-       title:'Notes', 
-       sub:'Thoughts and notes.'} },
-  { id:'ausstellungen', color:'#a855f7', 
-   de:{label:'Ausstellungen', 
-       title:'Ausstellungen', 
-       sub:'<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
+  { id:'start', color:'#ff3b45',
+   de:{label:'Startseite', title:'Startseite', sub:'Im Oktober 2018 hatte ich angefangen, Acrylbilder zu malen.'},
+   en:{label:'Home', title:'Home', sub:'In October 2018 I had started to paint acrylic pictures.'} },
+  { id:'acrylicons', color:'#3b82ff',
+   de:{label:'Acrylicons', title:'Acrylicons', sub:'Arbeiten aus Acryl.<br><br>Hier kannst du jetzt so viel schreiben wie du willst.<br><br>Absatz 2: Material ist Acryl auf Leinwand, mit Licht und Transparenz.<br><br>Absatz 3: Format 60x80cm bis 120x150cm.'},
+   en:{label:'Acrylicons', title:'Acrylicons', sub:'Acrylic works.<br><br>You can now write as much as you want here.<br><br>Second paragraph: Material is acrylic on canvas.'} },
+  { id:'notizen', color:'#ffe600',
+   de:{label:'Notizen', title:'Notizen', sub:'Gedanken und Notizen.'},
+   en:{label:'Notes', title:'Notes', sub:'Thoughts and notes.'} },
+  { id:'ausstellungen', color:'#a855f7',
+   de:{label:'Ausstellungen', title:'Ausstellungen',
+       sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
         <div style="margin-bottom:40px;position:relative">
           <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div>
           <div style="font-size:14px;opacity:.6">09.10.2026 - 30.10.2026</div>
@@ -78,10 +65,9 @@ const menu = [
           <div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div>
           <div style="opacity:.8">Gruppenausstellungen</div>
         </div>
-      </div>'}, 
-   en:{label:'Exhibitions', 
-       title:'Exhibitions', 
-       sub:'<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
+      </div>`},
+   en:{label:'Exhibitions', title:'Exhibitions',
+       sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
         <div style="margin-bottom:40px;position:relative">
           <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div>
           <div style="font-size:14px;opacity:.6">09.10.2026 - 30.10.2026</div>
@@ -100,13 +86,11 @@ const menu = [
           <div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div>
           <div style="opacity:.8">Group exhibitions</div>
         </div>
-      </div>'} },
-  { id:'links', color:'#22ff88', 
-   de:{label:'Links', 
-       title:'Links', 
-       sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`}, 
-   en:{label:'Links', 
-       title:'Links', 
+      </div>`} },
+  { id:'links', color:'#22ff88',
+   de:{label:'Links', title:'Links',
+       sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`},
+   en:{label:'Links', title:'Links',
        sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`} }
 ];
 
@@ -121,8 +105,6 @@ function getPage(){ const u=new URLSearchParams(location.search); return u.get('
 function render(activeId){
   const lang = getLang();
   const page = activeId || getPage();
-
-  // Lang switch
   langEl.innerHTML='';
   ['de','en'].forEach(l=>{
     const d=document.createElement('div');
@@ -134,8 +116,6 @@ function render(activeId){
     };
     langEl.appendChild(d);
   });
-
-  // Pills
   pillsEl.innerHTML='';
   menu.forEach(m=>{
     const d=document.createElement('div');
@@ -148,13 +128,11 @@ function render(activeId){
     d.onclick=()=>{ history.pushState({},'',`?lang=${lang}&page=${m.id}`); render(m.id); };
     pillsEl.appendChild(d);
   });
-
   const active = menu.find(m=>m.id===page)||menu[0];
   titleEl.textContent=active[lang].title;
   titleEl.style.color=active.color;
   subEl.innerHTML=active[lang].sub;
 }
-
 render();
 window.onpopstate=()=>render();
 </script>
