@@ -18,8 +18,15 @@
 .sub{font-size:18px;line-height:1.6;opacity:.9}
 .sub a{color:#22ff88;text-decoration:none;border-bottom:1px solid #22ff88;padding-bottom:2px}
 .sub a:hover{color:#fff;border-bottom-color:#fff}
-a.btn-link{display:inline-block;padding:10px 20px;border-radius:999px;border:2px solid #3b82ff;color:#3b82ff !important;text-decoration:none;font-weight:700;transition:.3s}
-a.btn-link:hover{background:#3b82ff;color:#000 !important;box-shadow:0 0 20px #3b82ff}
+a.btn-link{display:inline-block;padding:10px 20px;border-radius:999px;border:2px solid #3b82ff;color:#3b82ff!important;text-decoration:none;font-weight:700;transition:.3s}
+a.btn-link:hover{background:#3b82ff;color:#000!important;box-shadow:0 0 20px #3b82ff}
+  /* Acryl Galerie - Pink */
+.acryl-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:20px 0}
+.acryl-gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:2px solid #ff5ca1;cursor:pointer;transition:.3s}
+.acryl-gallery img:hover{transform:scale(1.03);box-shadow:0 0 20px #ff5ca188}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center}
+#lightbox img{max-width:90%;max-height:90%;border-radius:12px;border:2px solid #ff5ca1}
+#lightbox.active{display:flex}
 </style>
 </head>
 <body>
@@ -38,81 +45,24 @@ a.btn-link:hover{background:#3b82ff;color:#000 !important;box-shadow:0 0 20px #3
 <script>
 const menu = [
   { id:'start', color:'#ff3b45',
-   de:{label:'Startseite', 
-       title:'Startseite', 
-       sub:'Im Oktober 2018 hatte ich angefangen, Acrylbilder zu malen.'},
-   en:{label:'Home', 
-       title:'Home', 
-       sub:'In October 2018 I had started to paint acrylic pictures.'} },
+   de:{label:'Startseite', title:'Startseite', sub:'Im Oktober 2018 hatte ich angefangen, Acrylbilder zu malen.'},
+   en:{label:'Home', title:'Home', sub:'In October 2018 I had started to paint acrylic pictures.'} },
   { id:'acrylicons', color:'#3b82ff',
-   de:{label:'Acrylicons', 
-       title:'Acrylicons', 
-       sub:`Ein Acryl-Symbolthema für Linux-Desktops<br><br>Kompatibel mit KDE, GNOME, Cinnamon, XFCE<br><br><a class="btn-link" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">Acrylicons</a>`}, 
-   en:{label:'Acrylicons', 
-       title:'Acrylicons', 
-       sub:`An Acrylic Icon Theme for Linux Desktops<br><br>Compatible with KDE, GNOME, Cinnamon, XFCE<br><br><a class="btn-link" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">Acrylicons</a>`} },
+   de:{label:'Acrylicons', title:'Acrylicons', sub:`Ein Acryl-Symbolthema für Linux-Desktops<br><br>Kompatibel mit KDE, GNOME, Cinnamon, XFCE<br><br><a class="btn-link" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">Acrylicons</a>`},
+   en:{label:'Acrylicons', title:'Acrylicons', sub:`An Acrylic Icon Theme for Linux Desktops<br><br>Compatible with KDE, GNOME, Cinnamon, XFCE<br><br><a class="btn-link" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">Acrylicons</a>`} },
+  { id:'galerie', color:'#ff5ca1',
+   de:{label:'Galerie', title:'Galerie – Acrylicons Vorschau', sub:`Ein kleiner Einblick – die ganze Sammlung gibt es auf Acrylicons.<br><br><div class="acryl-gallery"><img src="https://acrylicons.codeberg.page/img/preview1.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview2.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview3.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview4.jpg" onclick="openLB(this.src)"></div><br><a class="btn-link" style="border-color:#ff5ca1;color:#ff5ca1!important" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">→ Alle Arbeiten auf Acrylicons</a>`},
+   en:{label:'Gallery', title:'Gallery – Acrylicons Preview', sub:`A small preview – find the full collection on Acrylicons.<br><br><div class="acryl-gallery"><img src="https://acrylicons.codeberg.page/img/preview1.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview2.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview3.jpg" onclick="openLB(this.src)"><img src="https://acrylicons.codeberg.page/img/preview4.jpg" onclick="openLB(this.src)"></div><br><a class="btn-link" style="border-color:#ff5ca1;color:#ff5ca1!important" href="https://acrylicons.codeberg.page/" target="_blank" rel="noopener noreferrer">→ View all on Acrylicons</a>`} },
   { id:'notizen', color:'#ffe600',
-   de:{label:'Notizen', 
-       title:'Notizen', 
-       sub:'Gedanken und Notizen.'},
-   en:{label:'Notes', 
-       title:'Notes', 
-       sub:'Thoughts and notes.'} },
+   de:{label:'Notizen', title:'Notizen', sub:'Gedanken und Notizen.'},
+   en:{label:'Notes', title:'Notes', sub:'Thoughts and notes.'} },
   { id:'ausstellungen', color:'#a855f7',
-   de:{label:'Ausstellungen', 
-       title:'Ausstellungen',
-       sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
-        <div style="margin-bottom:40px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">09.10.2026 - 30.10.2026</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Änderei – Dresden</div>
-          <div style="opacity:.8">Altlöbtau 22, 01159 Dresden<br>Vernissage 09.10.2026, 18:30 Uhr<br>Keine Kinderveranstaltung</div>
-        </div>
-        
-        <div style="margin-bottom:40px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">13.10.2025 - 31.01.2026</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Kunststall Altnaundorf – Radebeul</div>
-          <div style="opacity:.8">Altnaundorf 6, 01445 Radebeul<br>Vernissage 28.09.2025</div>
-        </div>
-        
-        <div style="margin-bottom:10px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">2024</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div>
-          <div style="opacity:.8">Gruppenausstellungen</div>
-        </div>
-      </div>`},
-   en:{label:'Exhibitions', title:'Exhibitions',
-       sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7">
-        <div style="margin-bottom:40px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">09.10.2026 - 26.10.2026</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Änderei – Dresden</div>
-          <div style="opacity:.8">Altlöbtau 22, 01159 Dresden<br>Opening 09.10.2026, 6:30 PM</div>
-        </div>
-        
-        <div style="margin-bottom:40px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">13.10.2025 - 31.01.2026</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Kunststall Altnaundorf – Radebeul</div>
-          <div style="opacity:.8">Altnaundorf 6, 01445 Radebeul<br>Opening 28.09.2025</div>
-        </div>
-        
-        <div style="margin-bottom:10px;position:relative">
-          <div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div>
-          <div style="font-size:14px;opacity:.6">2024</div>
-          <div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div>
-          <div style="opacity:.8">Group exhibitions</div>
-        </div>
-      </div>`} },
+   de:{label:'Ausstellungen', title:'Ausstellungen',
+       sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7"><div style="margin-bottom:40px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div><div style="font-size:14px;opacity:.6">09.10.2026 - 30.10.2026</div><div style="font-size:20px;font-weight:800;margin:4px 0">Änderei – Dresden</div><div style="opacity:.8">Altlöbtau 22, 01159 Dresden<br>Vernissage 09.10.2026, 18:30 Uhr<br>Keine Kinderveranstaltung</div></div><div style="margin-bottom:40px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div><div style="font-size:14px;opacity:.6">13.10.2025 - 31.01.2026</div><div style="font-size:20px;font-weight:800;margin:4px 0">Kunststall Altnaundorf – Radebeul</div><div style="opacity:.8">Altnaundorf 6, 01445 Radebeul<br>Vernissage 28.09.2025</div></div><div style="margin-bottom:10px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div><div style="font-size:14px;opacity:.6">2024</div><div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div><div style="opacity:.8">Gruppenausstellungen</div></div></div>`},
+   en:{label:'Exhibitions', title:'Exhibitions', sub:`<div style="position:relative;padding-left:30px;border-left:2px solid #a855f7"><div style="margin-bottom:40px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#a855f7;border-radius:50%;box-shadow:0 0 10px #a855f7"></div><div style="font-size:14px;opacity:.6">09.10.2026 - 26.10.2026</div><div style="font-size:20px;font-weight:800;margin:4px 0">Änderei – Dresden</div><div style="opacity:.8">Altlöbtau 22, 01159 Dresden<br>Opening 09.10.2026, 6:30 PM</div></div><div style="margin-bottom:40px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div><div style="font-size:14px;opacity:.6">13.10.2025 - 31.01.2026</div><div style="font-size:20px;font-weight:800;margin:4px 0">Kunststall Altnaundorf – Radebeul</div><div style="opacity:.8">Altnaundorf 6, 01445 Radebeul<br>Opening 28.09.2025</div></div><div style="margin-bottom:10px;position:relative"><div style="position:absolute;left:-39px;top:0;width:16px;height:16px;background:#333;border-radius:50%;border:2px solid #a855f7"></div><div style="font-size:14px;opacity:.6">2024</div><div style="font-size:20px;font-weight:800;margin:4px 0">Berlin / Meißen / Zwickau</div><div style="opacity:.8">Group exhibitions</div></div></div>`} },
   { id:'links', color:'#22ff88',
-   de:{label:'Links', 
-       title:'Links',
-       sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`},
-   en:{label:'Links', 
-       title:'Links',
-       sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`} }
+   de:{label:'Links', title:'Links', sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`},
+   en:{label:'Links', title:'Links', sub:`<a href="https://www.instagram.com/mondsternundsterne/" target="_blank" rel="noopener noreferrer">Instagram – mondsternundsterne</a><br><br><a href="https://loops.video/@mondstern/" target="_blank" rel="noopener noreferrer">Loops – @mondstern</a>`} }
 ];
 
 const pillsEl = document.getElementById('pills');
@@ -156,6 +106,11 @@ function render(activeId){
 }
 render();
 window.onpopstate=()=>render();
+</script>
+
+<div id="lightbox" onclick="this.classList.remove('active')"><img src=""></div>
+<script>
+function openLB(src){document.querySelector('#lightbox img').src=src;document.getElementById('lightbox').classList.add('active')}
 </script>
 </body>
 </html>
